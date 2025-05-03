@@ -1,0 +1,680 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>FeldaEga Site</title>
+    <link rel="icon" href="LOGO EGA.png" type="image/png">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap" rel="stylesheet">
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+
+    <style>
+        /* Reset dasar */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Montserrat', sans-serif;
+            background-color: #000000;
+            color: #ffffff;
+            line-height: 1.6;
+        }
+
+        /* Navbar */
+.navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px 20px;
+    background-color: #000000;
+    border-bottom: 1px solid #e0e0e0;
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+}
+
+.logo {
+    display: flex;
+    align-items: center;
+}
+
+.logo img {
+    width: 40px;
+    height: 40px;
+    margin-right: 10px;
+}
+
+.site-name {
+    font-size: 20px;
+    font-weight: bold;
+}
+
+.nav-links {
+    list-style: none;
+    display: flex;
+    gap: 20px;
+}
+
+.nav-links li {
+    display: inline;
+}
+
+.nav-links a {
+    text-decoration: none;
+    color: #ffffff;
+    font-weight: 500;
+}
+
+.nav-links a:hover {
+    color: #007BFF; /* Warna saat dihover */
+}
+
+.theme-toggle {
+    display: flex;
+    align-items: center;
+}
+
+.theme-toggle button {
+    background-color: #2c3e50;
+    border: none;
+    padding: 10px;
+    border-radius: 50%;
+    cursor: pointer;
+}
+
+.theme-toggle button img {
+    width: 20px;
+    height: 20px;
+}
+
+/* Responsive Navbar */
+@media (max-width: 768px) {
+    .navbar {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+
+    .nav-links {
+        display: none; /* Hide the nav links initially */
+        flex-direction: column;
+        gap: 10px;
+        width: 100%;
+    }
+
+    .nav-links.active {
+        display: flex; /* Show nav links when active */
+    }
+
+    .theme-toggle {
+        margin-top: 10px;
+    }
+
+    .navbar-toggle {
+        display: block;
+        background-color: #2c3e50;
+        border: none;
+        color: #ffffff;
+        padding: 10px 20px;
+        cursor: pointer;
+        font-size: 18px;
+    }
+}
+
+/* Hide the toggle button by default */
+.navbar-toggle {
+    display: none;
+}
+
+
+        /* Header */
+        header {
+            background-color: #111;
+            color: #f4f4f4;
+            padding: 50px 0;
+            text-align: center;
+            position: relative;
+            top: 0;
+            z-index: 1000;
+        }
+
+        header h1 {
+            font-size: 3em;
+            margin-bottom: 10px;
+            text-shadow: 0 0 10px rgba(255, 255, 255, 0.8), /* Cahaya pertama */
+                 0 0 20px rgba(255, 255, 255, 0.6), /* Cahaya kedua */
+                 0 0 30px rgba(255, 255, 255, 0.4); /* Cahaya ketiga */
+        }
+        
+
+        header p {
+            font-size: 1.5em;
+            margin-bottom: 10px;
+            text-shadow: 0 0 10px rgba(255, 255, 255, 0.8), /* Cahaya pertama */
+                 0 0 20px rgba(255, 255, 255, 0.6), /* Cahaya kedua */
+                 0 0 30px rgba(255, 255, 255, 0.4); /* Cahaya ketiga */
+        }
+
+        /* Container */
+        .container {
+            max-width: 1200px;
+            margin: auto;
+            padding: 20px;
+        }
+
+        /* Profil */
+        #profile {
+            display: flex;
+            align-items: center;
+            flex-wrap: wrap;
+            margin-bottom: 20px;
+            animation: fadeInUp 1s ease-in-out;
+        }
+
+        #profile img {
+            border-radius: 10%;
+            max-width: 300px;
+            margin-right: 20px;
+        }
+        #profile img:hover {
+    transform: scale(1.1); /* Memperbesar gambar sebesar 10% saat di-hover */
+}
+
+        #profile-info {
+            flex: 1;
+        }
+
+        #profile-info h2 {
+            font-size: 2.5em;
+            color: #f4f4f4;
+            margin-bottom: 10px;
+        }
+
+        #profile-info p {
+            font-size: 1.5em;
+            margin-bottom: 10px;
+        }
+
+        /* About Me */
+        #about, #skills, #portfolio, #education, #hobbies, #movies {
+            margin-bottom: 80px;
+            animation: fadeInUp 1s ease-in-out;
+        }
+
+        #about h2, #skills h2, #portfolio h2, #education h2, #hobbies h2, #movies h2 {
+            font-size: 2.5em;
+            margin-bottom: 20px;
+            color: #f4f4f4;
+        }
+
+        #about p {
+            font-size: 1.5em;
+            text-align: justify;
+            margin-bottom: 20px;
+        }
+
+        /* Skills */
+        .skills-list {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 15px;
+        }
+
+        .skills-list .skill {
+            background-color: #333;
+            color: #f4f4f4;
+            padding: 15px 25px;
+            border-radius: 5px;
+            font-size: 1.3em;
+            flex-basis: calc(33.333% - 10px);
+            text-align: center;
+            margin-bottom: 15px;
+            transition: background-color 0.3s ease;
+        }
+
+        .skills-list .skill:hover {
+            background-color: #555;
+        }
+
+        /* Portfolio */
+.portfolio {
+    padding: 20px;
+}
+
+.portfolio h3 {
+    text-align: center;
+    margin-bottom: 20px;
+    color: #000000;
+}
+
+.portfolio h5 {
+    text-align: center;
+    margin-bottom: 20px;
+    color: #000000;
+}
+
+.portfolio-list {
+    display: flex;
+    flex-direction: column;
+    gap: 20px; /* Jarak antara tiap item portofolio */
+}
+
+.portfolio-item {
+    display: flex;
+    align-items: center;
+    padding: 40px;
+    border-left: 4px solid #00ff7b; /* Border vertikal di sisi kiri */
+    background-color: hsl(0, 0%, 42%);
+    border-radius: 5px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+.portfolio-item img {
+    width: 50px;
+    height: 50px;
+    margin-right: 20px;
+    border-radius: 50%;
+}
+
+.portfolio-item p {
+    margin: 0;
+    font-size: 18px;
+    font-weight: 500;
+    color: #333;
+}
+
+
+        .education {
+    margin-bottom: 20px;
+}
+
+.education-list {
+    display: flex;
+    flex-direction: column; /* Susunan vertikal */
+    gap: 20px; /* Jarak antar item */
+}
+
+.education-item {
+    display: flex;
+    align-items: center;
+    gap: 15px; /* Jarak antara logo dan teks */
+    border: none; /* Hapus border */
+    padding: 0; /* Hapus padding */
+}
+
+.education-item img {
+    width: 60px; /* Sesuaikan ukuran logo */
+    height: 60px; /* Pastikan gambar tetap persegi */
+    border-radius: 0%; /* Memberikan sudut melengkung pada logo */
+}
+
+.education-info h3 {
+    margin: 0; /* Hapus margin pada heading */
+    font-size: 1.2em; /* Sesuaikan ukuran font */
+}
+
+.education-info p {
+    margin: 0; /* Hapus margin pada paragraf */
+    font-size: 1em; /* Sesuaikan ukuran font */
+    color: #666; /* Ubah warna teks jika diperlukan */
+}
+
+
+
+        /* Footer */
+        footer {
+            background-color: #111;
+            color: #f4f4f4;
+            text-align: center;
+            padding: 30px 0;
+        }
+
+        footer p {
+            margin: 0;
+            font-size: 1.3em;
+        }
+
+        /* Animasi */
+        @keyframes fadeInUp {
+            0% {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+            100% {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .profile {
+                flex-direction: column;
+                text-align: center;
+            }
+
+            .profile img {
+                margin-bottom: 20px;
+            }
+
+            .skills-list .skill,
+            .portfolio-item, .education-item, .hobbies-item, .movie-item {
+                flex-basis: 100%;
+            }
+        }
+
+        .skills-list {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+}
+
+.skill {
+    border: 2px solid #060b05; /* Garis tepi awal */
+    padding: 10px;
+    border-radius: 8px; /* Membuat sudut kotak melengkung */
+    text-align: center; /* Menyelaraskan gambar di tengah kotak */
+    box-shadow: none; /* Hilangkan efek cahaya awal */
+    transition: box-shadow 0.3s ease, border-color 0.3s ease; /* Tambahkan transisi untuk efek yang lebih halus */
+}
+
+.skill:hover {
+    border-color: #39ff14; /* Ganti warna garis tepi menjadi hijau neon saat di-hover */
+    box-shadow: 0 0 15px 5px #39ff14; /* Efek cahaya hijau neon saat di-hover */
+}
+
+.skill img {
+    width: 50px;  /* Sesuaikan ukuran lebar */
+    height: 50px; /* Sesuaikan ukuran tinggi */
+    object-fit: contain; /* Memastikan gambar tetap proporsional */
+}
+
+    /* Hobbies Section */
+.hobbies {
+    padding: 20px;
+    text-align: center;
+}
+
+.hobbies h2 {
+    margin-bottom: 20px;
+    font-size: 24px;
+    color: #ffffff;
+}
+
+.hobbies-list {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+    flex-wrap: wrap; /* Membuat item bisa turun ke baris berikutnya jika ruang tidak cukup */
+}
+
+.hobbies-item {
+    background-color: #f9f9f9;
+    padding: 15px;
+    border-radius: 8px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    font-size: 18px;
+    font-weight: 500;
+    color: #555;
+    flex: 1 1 150px; /* Membuat setiap item memiliki ukuran yang sama dan fleksibel */
+    max-width: 200px; /* Membatasi lebar maksimum setiap item */
+    text-align: center;
+}
+
+    .hobbies-item:hover {
+    border-color: #39ff14; /* Ganti warna garis tepi menjadi hijau neon saat di-hover */
+    box-shadow: 0 0 15px 5px #39ff14; /* Efek cahaya hijau neon saat di-hover */
+    }
+
+        /* Movies Section */
+.movies {
+    padding: 20px;
+    text-align: center;
+}
+
+.movies h2 {
+    margin-bottom: 20px;
+    font-size: 24px;
+    color: #ffffff;
+}
+
+.movies-list {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+    flex-wrap: wrap; /* Membuat item bisa turun ke baris berikutnya jika ruang tidak cukup */
+}
+
+.movie-item {
+    background-color: #f9f9f9;
+    padding: 15px;
+    border-radius: 8px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    width: 200px;
+    text-align: center;
+}
+
+.movie-item img {
+    width: 100%;
+    height: auto;
+    border-radius: 8px;
+    margin-bottom: 10px;
+}
+
+.movie-item p {
+    margin: 0;
+    font-size: 18px;
+    font-weight: 500;
+    color: #555;
+}
+
+.movie-item:hover {
+    border-color: #39ff14; /* Ganti warna garis tepi menjadi hijau neon saat di-hover */
+    box-shadow: 0 0 15px 5px #39ff14; /* Efek cahaya hijau neon saat di-hover */
+    }
+    
+    .logo {
+    width: 40px;
+    height: 40px;
+    }
+
+    .d-flex {
+    display: flex;
+    align-items: center;
+    }
+
+    .ml-3 {
+    margin-left: 1rem;
+    }
+
+    .mt-3 {
+    margin-top: 1rem;
+    }
+
+    </style>
+</head>
+<body>
+
+    <!-- Navbar -->
+    <div class="pos-f-t">
+        <div class="collapse" id="navbarToggleExternalContent">
+          <div class="bg-dark p-4">
+            <div class="d-flex align-items-center">
+              <img src="LOGO EGA.png" alt="logo" class="logo">
+              <h4 class="text-white ml-3 mb-0">Felda Ega Site</h4>
+            </div>
+            <ul class="list-unstyled mt-3">
+              <li><a href="#profile" class="text-white">Profil</a></li>
+              <li><a href="#about" class="text-white">About</a></li>
+              <li><a href="#skills" class="text-white">Skills</a></li>
+              <li><a href="#education" class="text-white">Education</a></li>
+              <li><a href="#portfolio" class="text-white">Experience</a></li>
+              <li><a href="#hobbies" class="text-white">Hobbies</a></li>
+              <li><a href="#movies" class="text-white">Movies</a></li>
+            </ul>
+          </div>
+        </div>
+        <nav class="navbar navbar-dark bg-dark">
+          <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarToggleExternalContent" aria-controls="navbarToggleExternalContent" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+          </button>
+        </nav>
+      </div>
+
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.3/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+
+
+    <!-- Header -->
+    <header>
+        <h1>Felda Ega Fadhila</h1>
+        <h3>Bachelor of Informatics Engineering</h3>
+        <h5>Institut Teknologi Sepuluh Nopember</h5>
+        <p>Web Developer | UI/UX Designer | Content Creator</p>
+    </header>
+
+    <div class="container">
+
+        <!-- Profil -->
+        <section id="profile">
+            <img src="FOTO TERGANTENG.png" alt="Foto Profil">
+            <div class="profile-info">
+                <a href="mailto:5025231199@student.its.ac.id" target="_blank">
+                    <img src="image-removebg-preview (2).png" alt="Gmail" style="width: 24px; height: 24px;">
+                </a>
+                <a href="https://www.google.com/maps/place/Kos+BangBer/@-7.2687517,112.8000365,20.4z/data=!4m15!1m8!3m7!1s0x2dd7fbf8381ac47f:0x3027a76e352be40!2sSurabaya,+Jawa+Timur!3b1!8m2!3d-7.2574719!4d112.7520883!16zL20vMDFmNHhk!3m5!1s0x2dd7fb40aa978e31:0x3d1f8a7c0427b8ea!8m2!3d-7.2685139!4d112.8006011!16s%2Fg%2F11vl9tc90p?entry=ttu&g_ep=EgoyMDI0MDkxMS4wIKXMDSoASAFQAw%3D%3D" target="_blank">
+                    <img src="https://static.vecteezy.com/system/resources/previews/022/484/500/large_2x/google-maps-gmaps-icon-logo-symbol-free-png.png" alt="Google Maps" style="width: 24px; height: 24px;">
+                </a>
+                <a href="https://www.instagram.com/felda.ega" target="_blank">
+                    <img src="https://www.freepnglogos.com/uploads/instagram-icon-png/instagram-logo-download-computer-neon-instagram-icons-image-23.png" alt="Instagram" style="width: 24px; height: 24px;">
+                </a>
+                <a href="https://www.linkedin.com/in/felda-ega14" target="_blank">
+                    <img src="https://cdn-icons-png.flaticon.com/512/174/174857.png" alt="LinkedIn" style="width: 24px; height: 24px;">
+                </a>
+            </div>
+        </section>
+
+        <!-- Tentang Saya -->
+        <section id="about">
+            <h2>Tentang Saya</h2>
+            <p>Saya seorang mahasiswa Teknik Informatika Institut Teknologi Sepuluh Nopember. Pada tahun 2024 ini saya menduduki perkuliahan saya pada tahun yang kedua. Saya senang mencari pengalaman baru dan lugas untuk beradaptasi dengan lingkungan sekitar saya. Saya memiliki kemampuan dan pengalaman yang diperlukan untuk pengorganisasian, pemecahan masalah, komunikasi yang efektif, dan kemahiran teknologi. Saya mampu bekerja secara kolaboratif dalam tim dan individu, didukung oleh kualitas seperti kejujuran, disiplin, dan tanggung jawab. Memiliki pengalaman sebagai panitia dalam berbagai peran seperti konseptor acara dan staff perizinan.</p>
+            <p>Saya senang bekerja pada proyek-proyek yang menantang dan selalu berusaha untuk memberikan hasil terbaik kepada klien. Saya percaya bahwa keterampilan teknis yang baik harus dilengkapi dengan komunikasi yang efektif dan kolaborasi yang kuat.</p>
+        </section>
+
+        <!-- Keterampilan -->
+        <section id="skills">
+            <h2>Keterampilan</h2>
+            <div class="skills-list">
+                <div class="skill">
+                    <img src="https://logos-download.com/wp-content/uploads/2017/07/HTML5_badge.png" alt="HTML" title="HTML">
+                </div>
+                <div class="skill">
+                    <img src="https://logospng.org/download/css-3/logo-css-3-2048.png" alt="CSS" title="CSS">
+                </div>
+                <div class="skill">
+                    <img src="https://logosdownload.com/logo/javascript-logo-big.png" alt="JavaScript" title="JavaScript">
+                </div>
+                <div class="skill">
+                    <img src="911_c_logo-removebg-preview.png" alt="React" title="React">
+                </div>
+                <div class="skill">
+                    <img src="https://logospng.org/download/laravel/logo-laravel-icon-1024.png" alt="Laravel" title="Laravel">
+                </div>
+                <div class="skill">
+                    <img src="https://logodownload.org/wp-content/uploads/2022/12/figma-logo-2.png" alt="UI/UX Design" title="UI/UX Design">
+                </div>
+            </div>
+        </section>
+
+        <!-- Riwayat Pendidikan -->
+        <section id="education">
+            <h2>Riwayat Pendidikan</h2>
+            <div class="education-list">
+                <div class="education-item">
+                    <img src="https://3.bp.blogspot.com/-Em-UPiFbwwo/WBRnohyqGPI/AAAAAAAAABU/YU22rrd7d7k4-sxhh-T18jt7O6eDhYFkACK4B/s1600/SMP%2B1%2BPonorogo%2BLogo.png" alt="Logo SMP Negeri 1 Jakarta">
+                    <div class="education-info">
+                        <h3>SMP Negeri 1 Ponorogo</h3>
+                        <p>2017 - 2020</p>
+                    </div>
+                </div>
+                <div class="education-item">
+                    <img src="https://www.dbl.id/uploads/school/13890/398-SMAN_3_TARUNA_ANGKASA_MADIUN.png" alt="Logo SMA Negeri 1 Jakarta">
+                    <div class="education-info">
+                        <h3>SMAN 3 Taruna Angkasa Jawa Timur</h3>
+                        <p>2020 - 2023</p>
+                    </div>
+                </div>
+                <div class="education-item">
+                    <img src="logo_its-removebg-preview.png" alt="Logo Universitas Indonesia">
+                    <div class="education-info">
+                        <h3>Institut Teknologi Sepuluh Nopember</h3>
+                        <p>S1-Teknik Informatika, 2023 - Sekarang</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+        
+        
+
+        <!-- Portofolio -->
+        <section id="portfolio">
+            <h2>Kepanitiaan</h2>
+            <div class="portfolio-list">
+                <div class="portfolio-item">
+                    <img src="logo.png" alt="Proyek 1">
+                    <h3>MABACUP ITS 2023</h3>
+                </div>
+                <div class="portfolio-item">
+                    <img src="image-removebg-preview (1).png" alt="Proyek 2">
+                    <h3>SCHEMATICS 2024</h3>
+                </div>
+                <div class="portfolio-item">
+                    <img src="https://inilho.its.ac.id/og/logo.png" alt="Proyek 3">
+                    <h3>INI LHO ITS! 2024 X Forda Ponorogo</h3>
+                </div>
+            </div>
+        </section>
+
+        <!-- Hobi -->
+        <section id="hobbies">
+            <h2>Hobi</h2>
+            <div class="hobbies-list">
+                <div class="hobbies-item">Membaca Buku</div>
+                <div class="hobbies-item">Boxing</div>
+                <div class="hobbies-item">Bersepeda</div>
+            </div>
+        </section>
+
+        <!-- Top 3 Movies -->
+        <section id="movies">
+            <h2>Top 3 Movies</h2>
+            <div class="movies-list">
+                <div class="movie-item">
+                    <img src="https://wallpapercave.com/wp/rRI81mP.jpg" alt="Inception">
+                    <p>Naruto Shippuden The Movie</p>
+                </div>
+                <div class="movie-item">
+                    <img src="https://th.bing.com/th/id/OIP.Kx5x4bG4jU6hMlSLTy6DGwHaFv?rs=1&pid=ImgDetMain" alt="The Godfather">
+                    <p>Dilan 1991</p>
+                </div>
+                <div class="movie-item">
+                    <img src="https://th.bing.com/th/id/OIP.vvSm2wPRs_JaKLZIWufG9QHaFh?rs=1&pid=ImgDetMain" alt="Interstellar">
+                    <p>The Avengers:Age of Ultron</p>
+                </div>
+            </div>
+        </section>
+
+    </div>
+
+    <footer>
+        <p>&copy; 2024 Felda Ega. Semua Hak Dilindungi.</p>
+    </footer>
+
+</body>
+</html>
